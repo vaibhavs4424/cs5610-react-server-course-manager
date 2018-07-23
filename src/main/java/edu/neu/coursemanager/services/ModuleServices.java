@@ -47,7 +47,6 @@ public class ModuleServices {
 	@GetMapping("/api/module/{id}")
 	public Module findModuleById(@PathVariable("id") int id) {
 		Optional<Module> data = moduleRepository.findById(id);
-
 		if (data.isPresent())
 			return data.get();
 
