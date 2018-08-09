@@ -70,4 +70,14 @@ public class WidgetService {
 		return null;
 	}
 
+	
+	@GetMapping("/api/course/{courseId}/module/{moduleId}/lesson/{lessonId}/topic/{topicId}/widget")
+	public List<Widget> findAllWidgetsForTopic2(@PathVariable("topicId") int topicId) {
+		Optional<Topic> data = topicRepository.findById(topicId);
+		if (data.isPresent()) {
+			Topic topic = data.get();
+			return topic.getWidgets();
+		}
+		return null;
+	}
 }
